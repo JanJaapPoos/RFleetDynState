@@ -666,8 +666,10 @@ Rprintf("Start of DynStateF\n");
   int whatRangeLT[MAXHORIZON] = {(NOSIZES * noInc) -1};
 
   nonZeroRanges(kHorizon,(NOSIZES * noInc)-1,kNPatch, theLndParmsAgg, whatRangeLT);
-  for ( t = 0; t < kHorizon; t++){
-    Rprintf("%d \n", whatRangeLT[t]);
+  if(verbose == 1){
+    for ( t = 0; t < kHorizon; t++){
+      Rprintf("Timestep"); Rprintf(" %d ",t); Rprintf("%d \n", whatRangeLT[t]);
+    }
   }
   Rprintf("Defined ranges for distribution functions per timestep\n"); R_FlushConsole();
   

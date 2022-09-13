@@ -2,7 +2,7 @@ library(RFleetDynState)
 hke <-  mac <-  meg <-  hom <- mon <- new("DynStateInput")
 
 catchMean(hke)  <- array(c(rep(10,2), rep(20,2),rep(10,2), rep(5,2)), dim=c(6,4,2), dimnames=list(cat=1:6,season=as.character(1:4),option=c("a","b")))
-catchMean(hke)[,,"b"] <- catchMean(hke)[,,"b"]/2
+catchMean(hke)[,,"b"] <- catchMean(hke)[,,"b"]*2
 
 catchSigma(hke) <- array(2                    ,dim=c(6,4,2), dimnames=dimnames(catchMean(hke)))
 
@@ -47,7 +47,7 @@ plot(apply(effort(sim(z))[,,],1,cumsum)[,1], type="s", ylim=c(0,max((apply(effor
 for (ii in 2:dim(effort(sim(z)))[2]) lines(apply(effort(sim(z))[,,],1,cumsum)[,ii], type="s", ylim=c(0,50))
 hist(apply(spp1Landings(sim(z)),2,sum),20, col="grey", main="Landings HKE",xlab = "", xlim= c(0, max(c(control@spp1LndQuota),max(apply(spp1Landings(sim(z)),2,sum)))))
 abline(v=control@spp1LndQuota, lty=2)
-hist(apply(spp2Landings(sim(z)),2,sum),20, col="grey", main="Landings MAC",xlab = "", xlim= c(0,60))
+hist(apply(spp2Landings(sim(z)),2,sum),20, col="grey", main="Landings MAC",xlab = "", xlim= c(0, max(c(control@spp2LndQuota),max(apply(spp2Landings(sim(z)),2,sum)))))
 abline(v=control@spp2LndQuota, lty=2)
 hist(apply(spp3Landings(sim(z)),2,sum),20, col="grey", main="Landings MEG",xlab = "", xlim= c(0,60))
 hist(apply(spp4Landings(sim(z)),2,sum),20, col="grey", main="Landings HOM",xlab = "", xlim= c(0,60))
