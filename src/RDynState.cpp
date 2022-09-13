@@ -584,8 +584,6 @@ Rprintf("Start of DynStateF\n");
 		                                                                                   theLndParms[i][t][s][3][inc3] *
 		                                                                                   theLndParms[i][t][s][4][inc4] * 
 		                                                                                   theLndParms[i][t][s][5][inc5];
-	                    }
-	                  }
 	                }
 	              }
 	            }
