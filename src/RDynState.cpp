@@ -488,7 +488,7 @@ Rprintf("Start of DynStateF\n");
   double   kSpp2LndQuota      = vSpp2LndQuota/sizeSpp2Inc;
   double   kSpp2LndQuotaFine  = vSpp2LndQuotaFine * sizeSpp2Inc;
 
-  Rprintf("kPriceEffort (fueluse * fuelprice  + geart maintenance costs)");     Rprintf("%f \n",kPriceEffort); 
+  Rprintf("kPriceEffort (fueluse * fuelprice  + geart maintenance costs)= ");     Rprintf("%f \n",kPriceEffort); 
 
   int Lndspp1, Lndspp2, i, t, s, inc0, inc1, inc2, inc3, inc4, inc5; /*for loops */
 
@@ -548,7 +548,7 @@ Rprintf("Start of DynStateF\n");
       }
     }
   }
-  Rprintf("Probability distributions of landings and discards copied");
+  Rprintf("Probability distributions of landings and discards copied \n");
 //  printPatchDetails ( 0, 0, noInc,  theLndParms);
   
   /*************************************************************************************************************************************/
@@ -740,15 +740,15 @@ Rprintf("Start of DynStateF\n");
   /*************************************************************************************************************************************/
   /*DEBUGCHECK                                                                                                                         */
   /*************************************************************************************************************************************/
-  Rprintf("numPatches "); Rprintf("%d\n", kNPatch);
+  Rprintf("Number of patches "); Rprintf("%d\n", kNPatch);
   Rprintf("vSpp1LndQuota ");  Rprintf("%f", vSpp1LndQuota);   Rprintf("; vSpp2LndQuota ");   Rprintf("%f\n", vSpp2LndQuota);
   Rprintf("kSpp1LndQuota ");  Rprintf("%f", kSpp1LndQuota);   Rprintf("; kSpp2LndQuota ");   Rprintf("%f\n", kSpp2LndQuota);
-  Rprintf("noInc ");          Rprintf("%d\n", noInc);
+  Rprintf("Number of increments ");          Rprintf("%d\n", noInc);
   Rprintf("Capacity ");       Rprintf("%d\n", kSpp1Capacity);
-  Rprintf("sizeSpp1Inc   ");                  Rprintf("%f\n", sizeSpp1Inc);
+  Rprintf("size Species 1 increment ");                  Rprintf("%f\n", sizeSpp1Inc);
 
   for ( s = 0; s < NOSPEC; s++){ 
-    Rprintf("spp");  Rprintf("%d", s+1); Rprintf(" Increment size "); Rprintf("%f\n",  sizeSppInc[s]);
+    Rprintf("species");  Rprintf("%d", s+1); Rprintf(" Increment size "); Rprintf("%f\n",  sizeSppInc[s]);
   }
 
   /*************************************************************************************************************************************/
