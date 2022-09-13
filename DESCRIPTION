@@ -1,0 +1,13 @@
+Package: RFleetDynState
+Title: 5 species, 6 size classes, multiple areas fleet dynamics Dynamic State Variable Model with sigma function
+        and up to 12 seasons
+Version: 1.02-04
+Author: Jan Jaap Poos
+Description: Package contains a 5 species Dynamic State Variable Model with sigma function. Two species are under individual quotas. 
+Maintainer: Jan Jaap Poos <janjaap.poos@wur.nl>
+License: GPL-2
+Depends: methods
+LazyLoad: Yes
+LazyData: Yes
+Packaged: 2022-09-13 14:28:15 UTC; janjaap
+NeedsCompilation: yes
