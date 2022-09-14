@@ -456,12 +456,32 @@ void nonZeroRanges ( int aHorizon, int aNoInc, int aNPatch, ATYPE aLndParmsAgg, 
 
 extern "C" SEXP DynStateF(SEXP cLndParms, SEXP cDisParms, SEXP eParms, SEXP pParms, SEXP xControl) {
 
-Rprintf("Start of DynStateF\n");
+  
+  Rprintf("Start of DynStateF\n");
 
+  const rlim_t kStackSize = 64L * 1024L * 1024L;   // min stack size = 64 Mb
+  struct rlimit rl;
+  int result;
+  
+  result = getrlimit(RLIMIT_STACK, &rl);
+  if (result == 0)
+  {
+    if (rl.rlim_cur < kStackSize)
+    {
+      rl.rlim_cur = kStackSize;
+      result = setrlimit(RLIMIT_STACK, &rl);
+      if (result != 0)
+      {
+        fprintf(stderr, "setrlimit returned result = %d\n", result);
+      }
+    }
+  }
+  
+  
   /*******************************************************************************************************************/
   /* INITIALISE VARIABLES, READ VARIABLES,                                                                           */
   /*******************************************************************************************************************/
-  SEXP ReturnObject, Simulations ;
+  SEXP ReturnObject, Simulations;
  
   SEXP a       = GET_DIM(cLndParms);
   int kNPatch  = INTEGER(a)[0];
