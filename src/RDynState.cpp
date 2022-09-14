@@ -10,6 +10,7 @@
 #include <numeric>
 #include "matalloc.h"
 #include <omp.h>
+#include <sys/resource.h>
 
 using namespace std;
 
